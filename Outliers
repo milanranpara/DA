@@ -1,0 +1,55 @@
+import pandas as pd
+a=pd.read_csv("Test.csv")
+
+b=a.sort_values(by=["Age"])
+b.sum()
+
+b.iat[2,0]		[iat function prints row & column for given number i.e., here 2nd row & 0th column]
+n=b.shape		[This prints rows & columns of the file.]
+n=b.shape[0]		[This prints count of rows in the file=20]
+n=b.shape[1]		[This prints count of rows in the file=1]
+n			[(20,1)]
+
+
+import pandas as pd
+a=pd.read_csv("Test.csv")
+
+b=a.sort_values(by=["Age"])
+c=b.sum()                         #sum of all observations
+
+b.iat[2,0]
+no=b.shape[0]
+no                                #no of rows
+
+Mean=int(c/no)
+Mean                              #mean
+
+i=int((no/2)-1)
+i
+
+j=int((no/2))
+j
+
+Median=(b.iat[i,0]+b.iat[j,0])/2
+Median
+
+q01=int(no*.25)
+q01
+q1=b.iat[q01,0]
+q1
+
+q03=int(no*.75)
+q03
+q3=b.iat[q03,0]
+q3
+
+iqr=b.iat[q03,0]-b.iat[q01,0]
+iqr
+
+upper_bound=q3+1.5*iqr
+lower_bound=q1-1.5*iqr
+
+print("Outliers are: ")
+for i in b["Age"]:
+    if i<lower_bound or i>upper_bound:
+        print (i)
