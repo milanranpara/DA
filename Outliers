@@ -10,10 +10,6 @@ n=b.shape[0]		[This prints count of rows in the file=20]
 n=b.shape[1]		[This prints count of rows in the file=1]
 n			[(20,1)]
 
-
-import pandas as pd
-a=pd.read_csv("Test.csv")
-
 b=a.sort_values(by=["Age"])
 c=b.sum()                         #sum of all observations
 
