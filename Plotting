@@ -1,0 +1,16 @@
+#imported class pyplot
+import matplotlib.pyplot as plt
+
+x=["JP", "OS", "DA", "WD", "AN", "AI"]
+y=[100, 91, 97, 93, 94, 99]
+z=[10,20,30,40,50,60]
+plt.title("SUBJECTS WISE SCORE", fontsize=15)
+plt.xlabel("SUBJECTS", fontsize=10)
+plt.ylabel("SCORE", fontsize=10)
+
+#bar is a function
+#plt.bar(x,y, width=0.5, color="r")
+c=["r","g","y","m","b","black"]
+plt.bar(x,y, width=0.5, color=c)
+plt.bar(x,z, width=0.5, color=c)
+plt.show()
