@@ -1,0 +1,40 @@
+import numpy as np
+import matplotlib.pyplot as pyplot
+import pandas as pd
+
+dict = {
+    "xi" : [2,6,8,8,12,16,20,20,22,26],
+"yi" : [58,105,88,118,117,137,157,169,149,202]
+}
+
+df = pd.DataFrame(dict)
+xMean = df["xi"].mean()
+yMean = df["yi"].mean()
+
+xi_xMean = []
+yi_yMean = []
+
+for x in df["xi"]:
+    xi_xMean.append(x - xMean)
+    
+for y in df["yi"]:
+    yi_yMean.append(y - yMean)
+    
+df["xi_xMean"] = xi_xMean
+df["yi_yMean"] = yi_yMean
+
+product = []
+
+for x in range(len(df["xi"])):
+    product.append(df["xi_xMean"][x] * df["yi_yMean"][x])
+
+df["product"] = product
+
+sq = []
+
+for x in  df["xi_xMean"]:
+    sq.append(x * x)
+    
+df["square"] = sq
+
+print(np.sum(df["product"]) / np.sum(df["square"]))
