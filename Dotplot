@@ -3,5 +3,11 @@ import pandas as pd
 import seaborn as sns
 
 df=pd.read_csv("Book2.csv")
-df
+
+#METHOD 1 TO DISPLAY SCATTER PLOT
 sns.stripplot(x=df['xi'], y=df['Frequency Distribution'])
+
+#METHOD 2 TO DISPLAY SCATTER PLOT
+li1=df["xi"] 
+li2=df["Frequency Distribution"] 
+plt.scatter(li1,li2)
